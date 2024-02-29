@@ -42,12 +42,12 @@ const dp = new DPlayer({
     loop: false,                                                        // 可选，循环播放音乐，默认：true
     // lang: 'en',                                                        // 可选，语言，`zh'用于中文，`en'用于英语，默认：Navigatorlanguage
     // screenshot: true,                                                  // 可选，启用截图功能，默认值：false，注意：如果设置为true，视频和视频截图必须启用跨域
-    logo: '/img/gxg.jpg',
+    logo: './img/gxg.jpg',
     hotkey: true,                                                      // 可选，绑定热键，包括左右键和空格，默认值：true
     preload: 'auto',
     video: {
         // url: 'https://blz-videos.nosdn.127.net/1/OverWatch/AnimatedShots/Overwatch_AnimatedShot_Bastion_TheLastBastion.mp4',
-        url:'./media/show.mp4',
+        url:'https://gitee.com/wsgxg/discrete-mathematics/raw/master/media/show.mp4',
         // url:'/static/shijian/3/index.m3u8',
     },
     // danmaku: {                                                         // 可选，显示弹幕，忽略此选项以隐藏弹幕
