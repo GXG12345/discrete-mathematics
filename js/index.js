@@ -47,7 +47,8 @@ const dp = new DPlayer({
     preload: 'auto',
     video: {
         // url: 'https://blz-videos.nosdn.127.net/1/OverWatch/AnimatedShots/Overwatch_AnimatedShot_Bastion_TheLastBastion.mp4',
-        url:'https://gitlab.com/GXG12345/show/-/raw/main/show.mp4',
+        // url:'https://gitlab.com/GXG12345/show/-/raw/main/show.mp4',
+        url:'https://jihulab.com/GXG12345/show/-/raw/main/show.mp4',
         // url:'/static/shijian/3/index.m3u8',
     },
     // danmaku: {                                                         // 可选，显示弹幕，忽略此选项以隐藏弹幕
