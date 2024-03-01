@@ -1,4 +1,27 @@
-﻿// 设置日间模式还是夜间模式
+﻿// 设置点击出水波效果
+let mx, my, timer;
+let z = 2;
+$('html').click(function (e) {
+    mx = e.clientX - 50;
+    my = e.clientY - 50;
+    z = z + 1;
+    if ($(e.target).closest("#calendar").length == 0 && $(e.target).closest("#pageBar").length == 0) {
+        _click_wave(mx, my, z);
+    }
+});
+
+function _click_wave(i, j, k) {
+    $('body').prepend(
+        '<div class="click_wave click_wave_' + k + '" style="z-index:' + k + ';top:' + j + 'px;left:' + i + 'px;">' +
+        '<span class="click_wave__back"></span>' +
+        '<span class="click_wave__back"></span>' +
+        '</div>'
+    );
+    setTimeout(function () {
+        $('.click_wave_' + k).fadeToggle(2000, function () { $('.click_wave_' + k).remove(); });
+    }, 1000);
+}
+// 设置日间模式还是夜间模式
 if (document.cookie.indexOf("day_mode") != -1) {
     if (document.cookie.match(new RegExp("(^| )" + 'day_mode' + "=([^;]*)(;|$)"))[2] == 'moon') {
         document.getElementById("blogTitle_switch_input").checked = true;
@@ -85,3 +108,116 @@ dp.on('ended', function () {
     sw();
     
 });
+
+//Echarts显示开始
+let myChart = echarts.init(document.getElementById('header-title'));
+// 指定图表的配置项和数据
+let option = {
+  graphic: {
+    elements: [
+      {
+        type: 'text',
+        left: 'center',
+        top: 'center',
+        style: {
+          text: '离散数学课程知识脉络可视化项目展示',
+          fontSize: remFontSize(0.5),
+          fontWeight: 'bold',
+          lineDash: [0, 200],
+          lineDashOffset: 0,
+          fill: 'transparent',
+          stroke: '#2759a8',
+          lineWidth: 1
+        },
+        keyframeAnimation: {
+          duration: 3000,
+          loop: false,
+          keyframes: [
+            {
+              percent: 0.7,
+              style: {
+                fill: 'transparent',
+                lineDashOffset: 200,
+                lineDash: [200, 0]
+              }
+            },
+            {
+              // Stop for a while.
+              percent: 0.8,
+              style: {
+                fill: 'transparent'
+              }
+            },
+            {
+              percent: 1,
+              style: {
+                fill: '#2759a8'
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+};
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+function remFontSize(res) {
+    let clientWidth = window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+    if (!clientWidth) return;
+    let fontSize = 100 * (clientWidth / 1920);
+    console.log(fontSize);
+    return res*fontSize;
+ }
+ //下面是见监控设备宽度发生变化时的函数
+ window.onresize = function(){
+    let options = {
+        graphic: {
+            elements: [
+              {
+                type: 'text',
+                left: 'center',
+                top: 'center',
+                style: {
+                  text: '离散数学课程知识脉络可视化项目效果展示',
+                  fontSize: remFontSize(0.5),
+                  fontWeight: 'bold',
+                  lineDash: [0, 200],
+                  lineDashOffset: 0,
+                  fill: 'transparent',
+                  stroke: '#2759a8',
+                  lineWidth: 1
+                },
+                keyframeAnimation: {
+                  duration: 3000,
+                  loop: false,
+                  keyframes: [
+                    {
+                      percent: 0.7,
+                      style: {
+                        fill: 'transparent',
+                        lineDashOffset: 200,
+                        lineDash: [200, 0]
+                      }
+                    },
+                    {
+                      // Stop for a while.
+                      percent: 0.8,
+                      style: {
+                        fill: 'transparent'
+                      }
+                    },
+                    {
+                      percent: 1,
+                      style: {
+                        fill: '#2759a8'
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+      };
+    myChart.setOption(options);
+}
