@@ -453,4 +453,6 @@ body{
 } */
 .navList img{
     width: 100%;
+    border: 5px solid #087cdb;
+    border-radius: 10px;
 }
