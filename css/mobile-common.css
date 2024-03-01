@@ -425,6 +425,7 @@ body{
 
 #video{
     margin-top: 9vh;
+    z-index: 99999;
 }
 .navList .title{
     text-align: center;

@@ -104,7 +104,7 @@ function sw() {
 
 }
 dp.on('ended', function () {
-    console.log('player ended');
+    // console.log('player ended');
     sw();
     
 });
@@ -166,7 +166,6 @@ function remFontSize(res) {
     let clientWidth = window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
     if (!clientWidth) return;
     let fontSize = 100 * (clientWidth / 1920);
-    console.log(fontSize);
     return res*fontSize;
  }
  //下面是见监控设备宽度发生变化时的函数

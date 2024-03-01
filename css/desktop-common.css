@@ -421,6 +421,7 @@ body {
     position: fixed;
     left: 0;
     margin-top: 9vh;
+    z-index: 99999;
 }
 #imgList .navList:first-child{
     margin-top: 9vh;
