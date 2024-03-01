@@ -21,6 +21,64 @@ function _click_wave(i, j, k) {
         $('.click_wave_' + k).fadeToggle(2000, function () { $('.click_wave_' + k).remove(); });
     }, 1000);
 }
+
+setTimeout(function(){
+  $("#up").css("display",'inline-block');
+},800);
+//设置回到顶部
+let scroll_top=0;
+	$(window).scroll(function() {
+		$("#up").css("opacity",Number($("body,html").scrollTop())*10/Number($('#imgList').height()));
+　　	});
+$('#up').on('click', function(event){
+  event.preventDefault();
+  $("body,html").animate({scrollTop: 0 ,},700);
+});
+
+	// 下面是美化title属性
+    let sweetTitles = {
+        x: 10,
+        y: 20,
+        tipElements: "a,span,img,div,li",
+        noTitle: false,
+        init: function() {
+            let noTitle = this.noTitle;
+            $(this.tipElements).each(function() {
+                $(this).mouseover(function(e) {
+                    if (noTitle) {
+                        isTitle = true;
+                    } else {
+                        isTitle = $.trim(this.title) != '';
+                    }
+                    if (isTitle) {
+                        this.myTitle = this.title;
+                        this.title = "";
+                        let tooltip =
+                            "<div class='tooltip'><div class='tipsy-inner'>" + this.myTitle +
+                            "</div></div>";
+                        $('body').append(tooltip);
+                        $('.tooltip').css({
+                            "top": (e.clientY + 20) + "px",
+                            "left": (e.clientX - 20) + "px"
+                        }).show('fast');
+                    }
+                }).mouseout(function() {
+                    if (this.myTitle != null) {
+                        this.title = this.myTitle;
+                        $('.tooltip').remove();
+                    }
+                }).mousemove(function(e) {
+                    $('.tooltip').css({
+                        "top": (e.clientY + 20) + "px",
+                        "left": (e.clientX - 20) + "px"
+                    });
+                });
+            });
+        }
+    };
+  $(document).ready(function () {
+      sweetTitles.init();
+  });
 // 设置日间模式还是夜间模式
 if (document.cookie.indexOf("day_mode") != -1) {
     if (document.cookie.match(new RegExp("(^| )" + 'day_mode' + "=([^;]*)(;|$)"))[2] == 'moon') {
