@@ -451,7 +451,7 @@ body{
     background-image: url(../img/blogDateBg.png);
     background-size: cover;
 } */
-.navList img{
+#imgList .navList img{
     width: 100%;
     border: 5px solid #087cdb;
     border-radius: 10px;
