@@ -440,7 +440,7 @@ body{
     position: absolute;
     z-index: 99;
 }
-.navList .title::after {
+/* .navList .title::after {
     content: '';
     display: block;
     width: 16vw;
@@ -449,7 +449,7 @@ body{
     z-index: 9;
     background-image: url(../img/blogDateBg.png);
     background-size: cover;
-}
+} */
 .navList img{
     width: 100%;
 }
